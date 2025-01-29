@@ -3,6 +3,7 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     public GameObject ballPrefab;
+    public Transform spawnLocation;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,8 +22,7 @@ public class BallSpawner : MonoBehaviour
         //if input being used, then spawn more
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Transform siblingTransform = GetComponent<Transform>();
-            Vector3 spawnPos = siblingTransform.position;
+            Vector3 spawnPos = spawnLocation.position;
         
             //create new ball instance at position
             Instantiate(ballPrefab, spawnPos, Quaternion.identity);
